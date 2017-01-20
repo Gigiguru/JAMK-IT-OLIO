@@ -131,10 +131,12 @@ namespace Tehtavat
             int sekuntti;
             Console.Write("anna sekuntti ");
             sekuntti = int.Parse(Console.ReadLine());
-            int tunti = sekuntti / 60;
-            int minuutti = tunti / 60;
-            int sek = minuutti / 60;
-            Console.WriteLine(tunti + minuutti + sek);
+            int tunti = sekuntti / 3600;
+            int minuutti = (sekuntti % 3600) / 60;
+            int sek = (sekuntti % 3600) % 60;
+
+
+            Console.Write(string.Format("{0}:{1}:{2}",tunti, minuutti, sek));
         }
     }
 }
