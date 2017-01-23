@@ -14,8 +14,20 @@ namespace Tehtavat
             //T2();
             //T3();
             //T4();
-            T5();
+            //T5();
             //T6();
+            //T7();
+            //T8();
+            //T9();
+            //T10();
+            //T11();
+            //T12();
+            //T13();
+            //T14();
+            //T15();
+            //T16();
+            //T17();
+            T18();
         }
         static void T1()
         {
@@ -101,7 +113,7 @@ namespace Tehtavat
             {
                 luku[i] = int.Parse(Console.ReadLine());
             }
-            int summa = luku[0] + luku[1]+ luku[2];
+            int summa = luku[0] + luku[1] + luku[2];
             int jako = summa / 3;
             Console.WriteLine(summa);
             Console.Write(jako);
@@ -136,7 +148,409 @@ namespace Tehtavat
             int sek = (sekuntti % 3600) % 60;
 
 
-            Console.Write(string.Format("{0}:{1}:{2}",tunti, minuutti, sek));
+            Console.Write(string.Format("voidaan ilmaista {0} tunti {1} minuutti {2} sekuntti ", tunti, minuutti, sek));
         }
+        static void T6() {
+            double bensa = 1.595;
+            double kulutus = 7.02 / 100;
+            double bensaa;
+
+            Console.Write("anna matka ");
+            bensaa = double.Parse(Console.ReadLine());
+            double kulu = kulutus * bensaa;
+            double kustan = (kulutus * bensaa) * bensa;
+
+            Console.Write(string.Format("Bensaa kuluu {0} litraa , kustannus {1:.##} euroa", kulu, kustan));
+        }
+        static void T7()
+        {
+            int vuosi;
+
+            Console.Write("anna vuosi ");
+            vuosi = int.Parse(Console.ReadLine());
+
+            if (vuosi % 4 == 0 && vuosi % 100 != 0 ||
+            vuosi % 400 == 0)
+                Console.Write("Vuosi " + vuosi + " on karkausvuosi");
+            else
+                Console.Write("Vuosi " + vuosi + " ei ole karkausvuosi");
+
+        }
+        static void T8() {
+            int[] luku = new int[] { 0, 1, 2 };
+            Console.WriteLine("anna kolme lukua");
+            for (int i = 0; i < 3; i++)
+            {
+                luku[i] = int.Parse(Console.ReadLine());
+            }
+            int suurin = luku.Max();
+            Console.WriteLine(suurin);
+
+        }
+        static void T9() {
+            string input = "";
+            int Sum = 0, newNumber;
+            while (input != "0")
+            {
+                Console.Write("syötä numeroita (0 laskee yhteen): ");
+                input = Console.ReadLine();
+                if (!Int32.TryParse(input, out newNumber))
+                {
+                    Console.WriteLine("E onnistu");
+                }
+                Sum += newNumber;
+            }
+            Console.WriteLine(" yhteensä {0}", Sum);
+            Console.ReadKey();
+        }
+        static void T10() {
+            int[] arvot = { 1, 2, 33, 44, 55, 68, 77, 96, 100 };
+            int luku;
+            luku = int.Parse(Console.ReadLine());
+            if ((luku - arvot[0]) == 0)
+            {
+                Console.Write("Hep ");
+
+            }
+            else if ((luku - arvot[2]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+            else if ((luku - arvot[3]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+            else if ((luku - arvot[4]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+            else if ((luku - arvot[5]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+            else if ((luku - arvot[6]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+            else if ((luku - arvot[7]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+            else if ((luku - arvot[8]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+            else if ((luku - arvot[9]) == 0)
+            {
+                Console.Write("Hep");
+
+            }
+        }
+        static void T11() {
+
+            string vali = " ";
+            string tahti = "*";
+            Console.WriteLine("Anna luku");
+            int kysy = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i <= kysy; i++)  //korkeus
+            {
+                for (int d = kysy; d > 0; d--) //vali
+                {
+                    Console.Write(vali);
+                }
+
+                for (int e = 0; e < i; e++) //tahdet
+                {
+                    Console.Write(tahti);
+                }
+
+                Console.WriteLine();
+
+            }
+        }
+        static void T12() {
+            int[] luku = new int[] { 0, 1, 2, 3, 4 };
+            Console.WriteLine("anna kolme lukua");
+            for (int i = 0; i < 5; i++)
+            {
+                luku[i] = int.Parse(Console.ReadLine());
+            }
+            Array.Sort<int>(luku);
+            Array.Reverse(luku);
+            foreach (int i in luku) Console.Write(i + " ");
+
+        }
+        static void T13() {
+            int[] luku = new int[] { 0, 1, 2, 3, 4 };
+            Console.WriteLine("anna 5 lukua");
+            for (int i = 0; i < 5; i++)
+            {
+                luku[i] = int.Parse(Console.ReadLine());
+            }
+            int moi = luku[0] + luku[1] + luku[2] + luku[3] + luku[4];
+            int suurin = luku.Max();
+            int min = luku.Min();
+            int arvo = (moi - luku.Max()) - luku.Min();
+            Console.WriteLine("kokonais pojot {0}", arvo);
+
+        }
+        static void T14() {
+            int[] arvosana = new int[6];
+            int input = 0;
+            string s = "";
+            bool kytkin = true;
+
+            while (kytkin)
+            {
+                Console.WriteLine("Anna arvosana (9 lopettaa)");
+                s = Console.ReadLine();
+                int.TryParse(s, out input);
+
+                switch (input)
+                {
+                    case 0:
+                        arvosana[0]++;
+                        break;
+                    case 1:
+                        arvosana[1]++;
+                        break;
+                    case 2:
+                        arvosana[2]++;
+                        break;
+                    case 3:
+                        arvosana[3]++;
+                        break;
+                    case 4:
+                        arvosana[4]++;
+                        break;
+                    case 5:
+                        arvosana[5]++;
+                        break;
+                    case 9:
+                        kytkin = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            for (int i = 0; i < arvosana.Length; i++)
+            {
+                Console.Write(i + ". ");
+                for (int x = 0; x < arvosana[i]; x++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void T15()
+        {
+            int korkeus = 2; // tästä miinus 3 on ekan rivin pituus
+            string[] rivit;
+            string s = "";
+
+            // tulostetaan kysymys, ja ajetaan if lauseen sulkujen sisällä integer korkeus muuttujaan
+            // (jos ei saada integeriä käyttäjän syötöstä, mennään else haaraan ja tulostetaan virhe
+            Console.WriteLine("kuusen korkeus? (minimi 2)");
+            if (int.TryParse(Console.ReadLine(), out korkeus))
+            {
+                // jos korkeus on liien pieni ni niin tulostetaan että liian pieni ja suljetaan ohjelma (koska ohjelmassa ei ole mainlooppia)
+                if (korkeus < 2)
+                {
+                    Console.WriteLine("Korkeus on liian pieni, ohjelma lopetetaan.");
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
+
+                rivit = new string[korkeus];
+
+                // tehdään sisennykset merkillä #
+                for (int i = 0; i < korkeus; i++)
+                {
+                    // eka rivi
+                    if (i == 0)
+                    {
+                        s = "";
+                        // mitä -3 tulee, katso kuva kuusirapellys.png
+                        for (int x = 0; x < korkeus - 3; x++)
+                        {
+                            s += "#";
+                        }
+                        rivit[i] = s;
+                    }
+                    else // toisesta rivistä eteenpäin
+                    {
+                        s = "";
+                        for (int x = 0; x < korkeus - 3 - i; x++)
+                        {
+                            s += "#";
+                        }
+                        rivit[i] = s;
+                    }
+                }
+
+                // tehdään merkit * kuusen muotoon sisennysten perään
+                for (int i = 0; i < korkeus; i++)
+                {
+                    // ensimmäinen rivi
+                    if (i == 0)
+                    {
+                        rivit[i] += "*";
+                    }
+                    else // toisesta rivistä eteenpäin
+                    {
+                        s = "";
+                        // guom i+(i+1):lla saadaan tarvittavien tähtien määrä tulosteeseen. taas katso kuva kuusirapellys.png
+                        // joka pitäisi olla solution explorerissa tehtava 15 alla.
+                        for (int x = 0; x < i + (i + 1); x++)
+                        {
+                            s += "*";
+                        }
+                        rivit[i] += s;
+                    }
+
+                    // muokataan kaksi viimeistä riviä vastaamaan ensimmäistä riviä jotta saadaan puun jalka
+                    rivit[rivit.Length - 1] = rivit[0];
+                    rivit[rivit.Length - 2] = rivit[0];
+                }
+
+                // vaihdetaan sisennyksen merkit '#' vastaamaan ' ' eli välilyöntiä.
+                for (int i = 0; i < korkeus; i++)
+                {
+                    rivit[i] = rivit[i].Replace('#', ' ');
+                }
+
+                // tulostetaan puu
+                foreach (string ss in rivit)
+                {
+                    Console.WriteLine(ss);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not an integer!");
+            }
+
+        }
+        static void T16() {
+            int luku = 0;
+            Random rnd = new Random();
+            int randomNumber = rnd.Next(0, 100);
+            Console.WriteLine(randomNumber);
+            int yritys = 0;
+            bool loop = true;
+            while (loop)
+            {
+                yritys++;
+                Console.WriteLine("anna luku");
+                luku = int.Parse(Console.ReadLine());
+                if (luku == randomNumber)
+                {
+                    Console.WriteLine("jee oikein {0}:lla yrityksella", yritys);
+                    loop = false;
+                }
+                else if (luku < randomNumber)
+                {
+                    Console.WriteLine("Luku suurempi");
+
+                }
+                else
+                {
+                    Console.WriteLine("luku pienempi");
+
+                }
+
+            }
+
+
+
+
+
+
+        }
+        static void T17() {
+            int[] taulu1 = new int[] { 0, 1, 2, 3, 4 };
+            Console.WriteLine("taulukko1");
+            Console.WriteLine("anna 5 lukua");
+            for (int i = 0; i < 5; i++)
+            {
+                taulu1[i] = int.Parse(Console.ReadLine());
+            }
+            int[] taulu2 = new int[] { 0, 1, 2, 3, 4 };
+            Console.WriteLine("taulukko1");
+            Console.WriteLine("anna 5 lukua");
+            for (int i = 0; i < 5; i++)
+            {
+                taulu2[i] = int.Parse(Console.ReadLine());
+            }
+            int[] taulu3 = taulu1.Concat(taulu2).ToArray();
+
+            Array.Sort(taulu3);
+
+            foreach (int i in taulu3)
+            {
+                Console.Write(i + ", ");
+            }
+
+        }
+        static void T18() {
+
+            Console.WriteLine("Give a sentence to check for palindrome");
+            string s = Console.ReadLine();
+
+            if (IsPalindrome(s))
+            {
+                Console.WriteLine("{0} is palindrome", s);
+            }
+            else
+            {
+                Console.WriteLine("{0} is not palindrome", s);
+            }
+        }
+
+        static bool IsPalindrome(string s)
+        {
+
+            int fromBeginning = 0, fromEnd = s.Length - 1;
+
+            // iteroidaan jokainen kirjain alusta ja lopusta 1 kerrallaan kunnes ensimmäinen ja viimeinen indexi on sama
+            for (fromBeginning = 0; fromBeginning < fromEnd; fromBeginning++, fromEnd--)
+            {
+                // luetaan pois erikoismerkit alusta
+                while (!char.IsLetterOrDigit(s[fromBeginning]))
+                {
+                    fromBeginning++;
+                }
+
+                // luetaan pois erikoismerkit lopusta
+                while (!char.IsLetterOrDigit(s[fromEnd]))
+                {
+                    fromEnd--;
+                }
+
+                // palautetaan false jos kirjaimet eivät ole samat
+                if (char.ToLower(s[fromBeginning]) != char.ToLower(s[fromEnd]))
+                {
+                    return false;
+                }
+            }
+            // palautetaan tosi koska kaikki oli samat ja kirjaimet loppu
+            return true;
+        }
+
+
+
+
+    
+    
     }
 }
