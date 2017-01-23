@@ -8,26 +8,85 @@ namespace Tehtavat
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //T20 <-- 
         {
-            //T1();
-            //T2();
-            //T3();
-            //T4();
-            //T5();
-            //T6();
-            //T7();
-            //T8();
-            //T9();
-            //T10();
-            //T11();
-            //T12();
-            //T13();
-            //T14();
-            //T15();
-            //T16();
-            //T17();
-            T18();
+            int input = 0;
+            string s = "";
+           
+
+            
+                Console.WriteLine("Anna tehtava nro (0-> 19, 20 lopettaa)");
+                s = Console.ReadLine();
+                int.TryParse(s, out input);
+
+                switch (input)
+                {
+                case 0:
+                    T1();
+                    break;
+                case 1:
+                    T2();
+                    break;
+                case 2:
+                    T3();
+                    break;
+                case 3:
+                    T4();
+                    break;
+                case 4:
+                    T5();
+                    break;
+                case 5:
+                    T6();
+                    break;
+                case 6:
+                    T7();
+                    break;
+                case 7:
+                    T8();
+                    break;
+                case 8:
+                    T9();
+                    break;
+                case 9:
+                    T10();
+                    break;
+                case 10:
+                    T11();
+                    break;
+                case 11:
+                    T12();
+                    break;
+                case 12:
+                    T13();
+                    break;
+                case 13:
+                    T14();
+                    break;
+                case 14:
+                    T15();
+                    break;
+                case 15:
+                    T16();
+                    break;
+                case 16:
+                    T17();
+                    break;
+                case 17:
+                    T18();
+                    break;
+                case 18:
+                    T19();
+                    break;
+                case 19:
+                    T19();
+                    break;
+                case 20:
+                    break;
+                
+               
+                }
+
         }
         static void T1()
         {
@@ -546,11 +605,66 @@ namespace Tehtavat
             // palautetaan tosi koska kaikki oli samat ja kirjaimet loppu
             return true;
         }
+        static void T19()
+        {
+            Random random = new Random((int)DateTime.Now.Ticks);
+            string[] sana = { "Hirsipuu" };
+            string arvaasana = sana[random.Next(0, sana.Length)];
+            string arvaasanaUppercase = arvaasana.ToUpper();
+            StringBuilder Nayta = new StringBuilder(arvaasana.Length);
+            for (int i = 0; i < arvaasana.Length; i++)
+                Nayta.Append('_');
+            List<char> oikein = new List<char>();
+            List<char> vaarin = new List<char>();
+            int elama = 10;
+            bool voitto = false;
+            int kirjaimia = 0;
+            string syotto;
+            char arvaa;
+            while (!voitto && elama > 0)
+            {
+                Console.Write("arvaa sana");
+                syotto = Console.ReadLine().ToUpper();
+                arvaa = syotto[0];
+                if (oikein.Contains(arvaa))
+                {
+                    Console.WriteLine("kirjain {0} on kaytetty ja se oli oikein", arvaa);
+                    continue;
+                }
+                else if (vaarin.Contains(arvaa))
+                {
+                    Console.WriteLine("kirjain {0} on kaytetty ja se oli vaarin", arvaa);
+                    continue;
+                }
+                if (arvaasanaUppercase.Contains(arvaa))
+                {
+                    oikein.Add(arvaa);
+                    for (int i = 0; i < arvaasana.Length; i++)
+                    {
+                        if (arvaasanaUppercase[i] == arvaa)
+                        {
+                            Nayta[i] = arvaasana[i];
+                            kirjaimia++;
+                        }
+                    }
+                    if (kirjaimia == arvaasana.Length)
+                        voitto = true;
+                }
+                else
+                {
+                    vaarin.Add(arvaa);
+                    Console.WriteLine("Voe ei kirjain {0} ei kuulunut", arvaa);
+                    elama--;
+                }
+                Console.WriteLine(Nayta.ToString());
+            }
+            if (voitto)
+                Console.WriteLine("voitit,izi Game izi life");
+            else
+                Console.WriteLine("havisit, sana olikin {0}", arvaasana);
 
 
-
-
-    
+        }
     
     }
 }
