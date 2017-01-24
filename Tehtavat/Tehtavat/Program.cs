@@ -88,6 +88,8 @@ namespace Tehtavat
                 }
 
         }
+      
+        
         static void T1()
         {
             int luku;
@@ -581,28 +583,28 @@ namespace Tehtavat
 
             int fromBeginning = 0, fromEnd = s.Length - 1;
 
-            // iteroidaan jokainen kirjain alusta ja lopusta 1 kerrallaan kunnes ensimmäinen ja viimeinen indexi on sama
+            
             for (fromBeginning = 0; fromBeginning < fromEnd; fromBeginning++, fromEnd--)
             {
-                // luetaan pois erikoismerkit alusta
+              
                 while (!char.IsLetterOrDigit(s[fromBeginning]))
                 {
                     fromBeginning++;
                 }
 
-                // luetaan pois erikoismerkit lopusta
+               
                 while (!char.IsLetterOrDigit(s[fromEnd]))
                 {
                     fromEnd--;
                 }
 
-                // palautetaan false jos kirjaimet eivät ole samat
+               
                 if (char.ToLower(s[fromBeginning]) != char.ToLower(s[fromEnd]))
                 {
                     return false;
                 }
             }
-            // palautetaan tosi koska kaikki oli samat ja kirjaimet loppu
+            
             return true;
         }
         static void T19()

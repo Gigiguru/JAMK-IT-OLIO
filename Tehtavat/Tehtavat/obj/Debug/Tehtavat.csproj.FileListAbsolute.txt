@@ -13,3 +13,9 @@ C:\Users\Kaizuka\Source\Repos\JAMK-IT-OLIO\Tehtavat\Tehtavat\obj\Debug\Tehtavat.
 C:\Users\Kaizuka\Source\Repos\JAMK-IT-OLIO\Tehtavat\Tehtavat\bin\Debug\Tehtavat.exe
 C:\Users\Kaizuka\Source\Repos\JAMK-IT-OLIO\Tehtavat\Tehtavat\bin\Debug\Tehtavat.pdb
 C:\Users\Kaizuka\Source\Repos\JAMK-IT-OLIO\Tehtavat\Tehtavat\obj\Debug\Tehtavat.csprojResolveAssemblyReference.cache
+D:\K3237\JAMK-IT-OLIO\Tehtavat\Tehtavat\bin\Debug\Tehtavat.exe.config
+D:\K3237\JAMK-IT-OLIO\Tehtavat\Tehtavat\obj\Debug\Tehtavat.exe
+D:\K3237\JAMK-IT-OLIO\Tehtavat\Tehtavat\obj\Debug\Tehtavat.pdb
+D:\K3237\JAMK-IT-OLIO\Tehtavat\Tehtavat\bin\Debug\Tehtavat.exe
+D:\K3237\JAMK-IT-OLIO\Tehtavat\Tehtavat\bin\Debug\Tehtavat.pdb
+D:\K3237\JAMK-IT-OLIO\Tehtavat\Tehtavat\obj\Debug\Tehtavat.csprojResolveAssemblyReference.cache
