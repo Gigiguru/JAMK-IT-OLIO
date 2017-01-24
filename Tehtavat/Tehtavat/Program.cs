@@ -176,8 +176,8 @@ namespace Tehtavat
             }
             int summa = luku[0] + luku[1] + luku[2];
             int jako = summa / 3;
-            Console.WriteLine(summa);
-            Console.Write(jako);
+            Console.Write("summa {0}",summa);
+            Console.Write(" ja jako {0}",jako);
             // Console.Write(luku[1]);
 
         }
