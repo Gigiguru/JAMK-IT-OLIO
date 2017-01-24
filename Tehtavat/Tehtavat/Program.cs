@@ -8,7 +8,7 @@ namespace Tehtavat
 {
     class Program
     {
-        static void Main(string[] args) //T20 <-- 
+        static void Main(string[] args) //T20 <--- 
         {
             int input = 0;
             string s = "";
