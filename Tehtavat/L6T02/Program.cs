@@ -15,7 +15,7 @@ namespace L6T02
         public string aika { get; set; }
         public override string ToString()
         {
-            return CDNimi + " " + Artisti + " " + Biisi;
+            return CDNimi + " " + Artisti + " yrdtyedry" + Biisi;
         }
         class CDs
         {
