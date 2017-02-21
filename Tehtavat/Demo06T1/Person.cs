@@ -31,6 +31,7 @@ namespace JAMK.IT
         public void Add(Person person)
         {
             persons.Add(person);
+            persons.Add(new Person { Firstname = "nimiii" });
         }
         public Person Get(int index)
         {
