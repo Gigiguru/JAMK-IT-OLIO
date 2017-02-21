@@ -37,6 +37,9 @@ namespace L6T4
         private List<Pelaaja> pelaajat;
         public string Nimi { get; set; }
         public string Kkaupunki { get; set; }
+        public List<Pelaaja> Pelaajat {
+            get { return pelaajat; }
+        }
         public Joukkue()
         {
         }
@@ -118,6 +121,8 @@ namespace L6T4
             JYP.Add("Keli", "Hopteri", 15, 8);
             JYP.Tallenna("JYP");
             Console.WriteLine(JYP.ToString());
+
+            Console.WriteLine(Pelaajat);
 
 
 
