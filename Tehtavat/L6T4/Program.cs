@@ -109,13 +109,13 @@ namespace L6T4
         {
             Joukkue JYP = new Joukkue("JYP");
             JYP.Kkaupunki = "Jyväskylä";
-            JYP.Add("Mikko", "Mallikas", 25, 5);
+            JYP.Add("Heli", "kopteri", 16, 5);
             Console.WriteLine(JYP.ToString());
 
             JYP.Poista(5);
             Console.WriteLine(JYP.ToString());
 
-            JYP.Add("Heli", "Kopteri", 25, 8);
+            JYP.Add("Keli", "Hopteri", 15, 8);
             JYP.Tallenna("JYP");
             Console.WriteLine(JYP.ToString());
 
