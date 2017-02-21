@@ -45,7 +45,7 @@ namespace L6T03
             }
 
         }
-        public Kortti Lisaa()
+        public Kortti randomi()
         {
             Random rnd = new Random();
             Kortti kortti = kortit[rnd.Next(0, kortit.Count)];
@@ -63,7 +63,7 @@ namespace L6T03
             List<Kortti> kortit = new List<Kortti>();
             for (int i = 0; i < 52; i++)
             {
-                kortit.Add(pakka.Lisaa());
+                kortit.Add(pakka.randomi());
             }
             foreach (Kortti x in kortit)
             {
