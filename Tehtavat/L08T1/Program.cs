@@ -6,39 +6,33 @@ using System.Threading.Tasks;
 
 namespace L08T1
 {
-    interface ICLASS
+    class Dice
     {
-        int Heita(int Numero1, int heitto);
-    }
-    public int Numero
-    {
-        get
+        int numero;
+        public int Numero
         {
-            return Numero;
+            get
+            {
+                return numero;
+            }
+            set
+            {
+                Random rnd = new Random();
+                int Valu = rnd.Next(1,7);
+                numero = Valu;
+            }
         }
-        set
-        {
-            if (!(value >= 0 && value <= 200))
-                numero = value;
-            else
-                numero = 0;
-        }
+
     }
-    public class Dice : ICLASS
-    {
-        public int Heita(int Numero1, int heitto)
-        { 
-        return Numero1 + heitto;
-        }
-    }
+   
+  
+
     class Program
     {
         static void Main(string[] args)
         {
-            //kokeillaan luokkaa calculator
-            Dice laskin = new Dice();
-            int tulos = laskin.Heita(10, 20);
-            Console.WriteLine("Yhteenlasku 10+20 tulos on" + tulos);
+            Dice Noppe = new Dice();
+            Console.WriteLine(numero);
         }
     }
 }
