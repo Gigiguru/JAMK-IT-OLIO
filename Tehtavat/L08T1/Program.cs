@@ -4,35 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace L08T1
+namespace ConsoleApplication4
 {
     class Dice
     {
-        int numero;
-        public int Numero
-        {
-            get
-            {
-                return numero;
-            }
-            set
-            {
-                Random rnd = new Random();
-                int Valu = rnd.Next(1,7);
-                numero = Valu;
-            }
-        }
 
+        Random rnd1 = new Random();
+        int Throw = 0;
+        int Min = 1;
+        int Max = 8;
+        public int Value { get { return Throw; } }
+        public void ThrowDice()
+        {
+            Throw = rnd1.Next(Min, Max);
+        }
     }
-   
-  
 
     class Program
     {
         static void Main(string[] args)
         {
-            Dice Noppe = new Dice();
-            Console.WriteLine(numero);
+            int ThrowCount = 0, sum = 0;
+            Dice noppa = new Dice();
+            Console.WriteLine("How many times you want to throw a dice :");
+            int.TryParse(Console.ReadLine(), out ThrowCount);
+            for (int i = 0; i < ThrowCount; i++)
+            {
+                noppa.ThrowDice();
+                sum = sum + noppa.Value;
+                Console.WriteLine(noppa.Value);
+            }
+            float average = (float)sum / (float)ThrowCount;
+            Console.WriteLine("Dice is now thrown {0} times, average is {1}", ThrowCount, average);
+
         }
     }
 }
