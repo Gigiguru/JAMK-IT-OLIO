@@ -22,8 +22,16 @@ namespace ConsoleApplication5
         static public double Average(double[] X)
         {
 
-
-            return Sum(X) / X.Length;
+            try
+            {
+                return Sum(X) / X.Length;
+            }
+            catch (Exception)
+            {
+               Console.WriteLine("Something unexpected");
+               return 0;
+            }
+            
 
         }
         static public double Min(double[] X)
