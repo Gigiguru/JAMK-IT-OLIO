@@ -20,6 +20,8 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int laskuri = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,10 +29,12 @@ namespace WpfApplication1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            //kasvatetaan laskuria
+            laskuri++;
             //luetaan textbocxin arvo
             string user = txtInput.Text;
             //tervehditaan kayttajaa
-            txtMessage.Text = "Terve " + user;
+            txtMessage.Text = "Terve " + user + "#" + laskuri.ToString();
         }
     }
 }
