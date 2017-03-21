@@ -4,64 +4,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication7
+namespace ConsoleApplication5
 {
-    class Product
+    class Invoiceitem
     {
-
         public string Name { get; set; }
         public double Price { get; set; }
-
-        public Product(string name, double price)
+        public int Quantify { get; set; }
+        public Invoiceitem() { }
+        public Invoiceitem(string name, double price, int quantify)
         {
             Name = name;
             Price = price;
-        }
+            Quantify = quantify;
 
-    }
-    class InvoiceItem
-    {
-
-        public string Invoicers { get; set; }
-        public Dictionary<Product, int> InvoiceItems { get; }
-        public InvoiceItem()
-        {
-            InvoiceItems = new Dictionary<Product, int>();
         }
         public double Total()
-        {
-            double Total = 0;
-            foreach (KeyValuePair<Product, int> X in InvoiceItems)
-            {
-                Total += X.Key.Price * X.Value;
-            }
-
-            return Total;
-        }
-
+        { return Price * Quantify; }
         public override string ToString()
         {
-            string Y = "";
-
-            foreach (KeyValuePair<Product, int> X in InvoiceItems)
-            {
-                Y += X.Key.Name + " " + X.Key.Price + " "+ X.Value + " pieces " + X.Key.Price + "e \n";
-            }
-            Y += "Total " + Total() + "e";
-            return Y;
+            return Name + " " + Price + "e " + Quantify + " pieces " + Total() + " total";
         }
+    }
+    class Invoice
+    {
+        public string Customer { get; set; }
+        private List<Invoiceitem> X { get; }
+        public Invoice(string customer)
+        {
+            Customer = customer;
+            X = new List<Invoiceitem>();
+        }
+        public void Add(Invoiceitem item)
+        {
+            X.Add(item);
+        }
+        public string Total()
+        {
+            double total = 0;
+            foreach (Invoiceitem item in X)
+            {
+                total += item.Total();
+            }
+            string I = "Total's " + total;
+            return I;
+        }
+        public void PrintInvoice()
+        {
+            string y = "Customer " + Customer + " invoice: \n";
+            foreach (Invoiceitem item in X)
+            {
+                y += item.ToString() + "\n";
+            }
+            y += Total() + "e";
+            Console.WriteLine(y);
+        }
+
 
     }
     class Program
     {
         static void Main(string[] args)
         {
-            InvoiceItem items = new InvoiceItem();
-            items.InvoiceItems.Add(new Product("Milk", 1.75), 1);
-            items.InvoiceItems.Add(new Product("Beer", 5.25), 1);
-            items.InvoiceItems.Add(new Product("Butter", 2.50), 2);
-            Console.WriteLine("Customer Kirsi Kernel's invoice:");
-            Console.WriteLine(items.ToString());
+            Invoice Invoice = new Invoice("Kirsi");
+            Invoice.Add(new Invoiceitem("Milk", 1.75, 1));
+            Invoice.Add(new Invoiceitem("Beer", 1.75, 1));
+            Invoice.Add(new Invoiceitem("Butter", 1.75, 2));
+            Invoice.PrintInvoice();
 
         }
     }
