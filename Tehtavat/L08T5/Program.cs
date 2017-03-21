@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication5
 {
-    interface IArrayCalc
-    {
-
-    }
+   
     class ArrayCalcs
     {
 
