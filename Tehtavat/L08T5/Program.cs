@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConsoleApplication5
 {
    
-    class ArrayCalcs
+    public class ArrayCalcs
     {
 
         static public double Sum(double[] X)

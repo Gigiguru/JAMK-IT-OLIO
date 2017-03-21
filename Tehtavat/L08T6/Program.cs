@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication5
 {
-    class Invoiceitem
+   class Invoiceitem
     {
         public string Name { get; set; }
         public double Price { get; set; }
