@@ -66,11 +66,11 @@ namespace ConsoleApplication5
     {
         static void Main(string[] args)
         {
-            Invoice Invoice = new Invoice("Kirsi");
-            Invoice.Add(new Invoiceitem("Milk", 1.75, 1));
-            Invoice.Add(new Invoiceitem("Beer", 1.75, 1));
-            Invoice.Add(new Invoiceitem("Butter", 1.75, 2));
-            Invoice.PrintInvoice();
+            Invoice invoice = new Invoice("Kirsi");
+            invoice.Add(new Invoiceitem("Milk", 1.75, 1));
+            invoice.Add(new Invoiceitem("Beer", 1.75, 1));
+            invoice.Add(new Invoiceitem("Butter", 1.75, 2));
+            invoice.PrintInvoice();
 
         }
     }
