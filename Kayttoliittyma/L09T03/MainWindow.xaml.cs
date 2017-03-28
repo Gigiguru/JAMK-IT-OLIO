@@ -73,11 +73,10 @@ namespace WpfApplication2
         private double Karminpiiri()
         {
 
-            double L, H, Value = 0;
+            double L, H = 0;
             double.TryParse(txtL.Text, out L);
             double.TryParse(txtH.Text, out H);
-            Value = (((L * 2) + (H * 2)) / 10);
-            return Value;
+            return (((L * 2) + (H * 2)) / 10);
 
         }
 
