@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication3
+namespace WpfApplication4
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -35,166 +35,184 @@ namespace WpfApplication3
         }
         class Game
         {
-
-            public string Name { get; set; }
             private Random rnd = new Random();
+            private List<int> lista = new List<int>();
+            private List<string> lista2 = new List<string>();
+            string Answeri;
             public int RNDL() { return rnd.Next(1, 39); }
             public int RNDV() { return rnd.Next(1, 48); }
             public int RNDE() { return rnd.Next(1, 50); }
+            public string Show()
+            {
+                int Row = 0;
+                string temp = "";
+                foreach (string item in lista2)
+                {
+                    Row++;
+                    temp += "Row " + Row + " " + item + "\n";
+                }
+                return temp;
+            }
+            public void Draw(int X)
+            {
 
+
+                for (int i = 0; i < X; i++)
+                {
+                    lista2.Add(GameSelect(Answeri));
+                }
+                Show();
+
+
+            }
+            public void ListClear()
+            {
+                lista2.Clear();
+            }
+            public string GameSelect(string X)
+            {
+                string Answer = "";
+                Answeri = "";
+                if (X == "Lotto")
+                {
+                    Answer = Lotto();
+                    Answeri = "Lotto";
+                }
+                else if (X == "VikingLotto")
+                {
+                    Answer = Vikinglotto();
+                    Answeri = "VikingLotto";
+                }
+                else if (X == "EuroJackpot")
+                {
+                    Answer = Eurojackpot();
+                    Answeri = "EuroJackpot";
+                }
+
+                return Answer;
+
+            }
             public string Lotto()
             {
-                string X = "";
-                string A = "";
-
-                for (int y = 0; y < 7; y++)
+                int temp = 0;
+                string msg2 = "";
+                string msg = "";
+                int[] lottoNumbers = new int[7];
+                for (int i = 0; i < lottoNumbers.Length; i++)
                 {
-                    X += RNDL() + " ";
+                    do
+                    {
+                        temp = RNDL();
+                    }
+                    while (lottoNumbers.Contains(temp));
+                    lottoNumbers[i] = temp;
+                    lista.Add(temp);
                 }
-                X += "\n";
-
-                return A += X;
-
+                lista.Sort();
+                foreach (int item in lista)
+                {
+                    msg += " " + item;
+                }
+                msg2 = msg;
+                lista.Clear();
+                return msg2;
             }
-            public string VikingLotto()
+            public string Vikinglotto()
             {
-                string X = "";
-                string A = "";
-
-                for (int y = 0; y < 6; y++)
+                int temp = 0;
+                string msg2 = "";
+                string msg = "";
+                int[] lottoNumbers = new int[6];
+                for (int i = 0; i < lottoNumbers.Length; i++)
                 {
-                    X += RNDV() + " ";
+                    do
+                    {
+                        temp = RNDV();
+                    }
+                    while (lottoNumbers.Contains(temp));
+                    lottoNumbers[i] = temp;
+                    lista.Add(temp);
                 }
-                X += "\n";
-
-                return A += X;
-
+                lista.Sort();
+                foreach (int item in lista)
+                {
+                    msg += " " + item;
+                }
+                msg2 = msg;
+                lista.Clear();
+                return msg2;
             }
-            public string Ej()
+            public string Eurojackpot()
             {
-                string X = "";
-                string A = "";
-
-                for (int y = 0; y < 5; y++)
+                int temp = 0;
+                string msg2 = "";
+                string msg = "";
+                int[] lottoNumbers = new int[5];
+                int[] lottoNumbersExtra = new int[2];
+                for (int i = 0; i < lottoNumbers.Length; i++)
                 {
-                    X += RNDV() + " ";
+                    do
+                    {
+                        temp = RNDE();
+                    }
+                    while (lottoNumbers.Contains(temp));
+                    lottoNumbers[i] = temp;
+                    lista.Add(temp);
                 }
-                X += " tähtinumerot ";
-                for (int y = 0; y < 2; y++)
+                lista.Sort();
+                foreach (int item in lista)
                 {
-                    X += RNDE() + " ";
+                    msg += " " + item;
                 }
-                X += "\n";
-
-                return A += X;
-
+                msg += " Tähtinumerot ";
+                for (int i = 0; i < lottoNumbersExtra.Length; i++)
+                {
+                    do
+                    {
+                        temp = RNDE();
+                    }
+                    while (lottoNumbers.Contains(temp) && lottoNumbersExtra.Contains(temp));
+                    lottoNumbers[i] = temp;
+                    msg += " " + temp;
+                }
+                msg2 = msg;
+                lista.Clear();
+                return msg2;
             }
+
+
         }
-        class X
-        {
-            private List<string> game { get; }
-            public string Name { get; set; }
-            public X()
-            {
-                game = new List<string>();
-            }
-            public void Add(string item)
-            {
-
-                game.Add(item);
-            }
-            //public void Delete()
-            //    {
-            //    game.RemoveAt(game.Count - 1);
-
-            //    }
-            public void Clear()
-            {
-                game.Clear();
-            }
-            public override string ToString()
-            {
-                string y = "";
-                int Row = 1;
-                foreach (string item in game)
-                {
-                    y += "Row " + Row + ": " + item;
-                    Row++;
-                }
-                return y;
-            }
-
-        }
-        Game Temp = new Game();
-        X value = new X();
-
+        Game game = new Game();
+        int X = 0;
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            int X = 0;
-            Int32.TryParse(txtBox.Text, out X);
-
-
+            int.TryParse(txtInput.Text, out X);
             if (cbCombo.SelectedValue == null)
             {
-                MessageBox.Show("Valitse peli");
-                return;
-            }
-            if (cbCombo.SelectedValue.ToString() == "Lotto")
-            {
-
-                for (int i = 0; i < X; i++)
-                {
-                    value.Add(Temp.Lotto());
-                }
-            }
-            else if (cbCombo.SelectedValue.ToString() == "VikingLotto")
-            {
-
-                for (int i = 0; i < X; i++)
-                {
-                    value.Add(Temp.VikingLotto());
-                }
-            }
-            else if (cbCombo.SelectedValue.ToString() == "EuroJackpot")
-            {
-
-                for (int i = 0; i < X; i++)
-                {
-                    value.Add(Temp.Ej());
-                }
-            }
-
-            textBlock.Text = value.ToString(); ;
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            if (value.ToString() == "")
-            {
-                MessageBox.Show("Lista on tyhja");uioiuo
+                MessageBox.Show("Valitse Peli");
             }
             else
             {
-                value.Clear();
+                game.GameSelect(cbCombo.SelectedValue.ToString());
+                game.Draw(X);
+                txtoutput.Text = game.Show();
             }
-            textBlock.Text = value.ToString();
+
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtBox.Text, "[^0-9,]"))
-            {
-                MessageBox.Show("Syota luku");
-                txtBox.Text = txtBox.Text.Remove(txtBox.Text.Length - 1);
-            }
+            game.ListClear();
+            txtoutput.Text = game.Show();
+
         }
 
         private void cbCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbCombo.SelectedIndex > 0)
+            if (cbCombo.SelectedIndex > -1)
             {
-                value.Clear();
-                textBlock.Text = value.ToString();
+                game.ListClear();
+                txtoutput.Text = game.Show();
             }
         }
     }

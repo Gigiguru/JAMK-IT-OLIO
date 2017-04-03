@@ -25,6 +25,42 @@ namespace WpfApplication5
             InitializeComponent();
 
         }
+        class Kiuas {
+            double temp, hum = 0;
+            string mgs = "";
+            public string MSG { get { return mgs; } }
+            public double Temp { get { return temp; } }
+            public double Hum { get { return hum; } }
+            public void TempCheck(double X)
+            {
+                mgs = "";
+                if (X >= 0 && X <= 120)
+                {
+                    temp = X;
+                    
+                }
+                else
+                {
+                    mgs = "Arvo ei kelpaa";
+                }
+                           
+            }
+            public void HumCheck(double X)
+            {
+                mgs = "";
+                if (X >= 0 && X <= 100)
+                {
+                    hum = X;
+
+                }
+                else
+                {
+                    mgs = "Arvo ei kelpaa";
+                }
+            }
+
+        }
+        Kiuas kiuas = new Kiuas();
         string msg = "";
         private void Custom(object sender, RoutedEventArgs e)
         {
@@ -37,39 +73,35 @@ namespace WpfApplication5
         {
             double X = 0;
             double.TryParse(msg, out X);
+      
             if (rdTemp.IsChecked == true)
             {
-                double Value = 0;
-                Double.TryParse(msg, out Value);
-                if (Value >= 120 || Value <= 0)
-                {
-                    MessageBox.Show("vihree");
-                }
-                else
-                {
-                    txtTemp.Text = msg;
-                }
+                
+                kiuas.TempCheck(X);
+                txtTemp.Text = kiuas.Temp.ToString();
             }
             else if (rdHum.IsChecked == true)
             {
-                double Value = 0;
-                Double.TryParse(msg, out Value);
-                if (Value >= 100 || Value <= 0)
-                {
-                    MessageBox.Show("vihree");
-                }
-                else
-                {
-                    txtHum.Text = msg;
-                }
-
+                kiuas.HumCheck(X);
+                txtHum.Text = kiuas.Hum.ToString();          
             }
+            txtError.Text = kiuas.MSG;
+
+
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
-            msg = msg.Remove(msg.Length - 1);
-            textBlock.Text = msg;
+            if (msg == "")
+            {
+                txtError.Text = "Tyhja";
+            }
+            else
+            {
+                msg = msg.Remove(msg.Length - 1);
+                textBlock.Text = msg;
+            }
+           
         }
 
 
