@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace L10T03.Properties
+namespace L10T4.Properties
 {
 
 
