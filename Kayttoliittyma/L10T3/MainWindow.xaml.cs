@@ -215,5 +215,14 @@ namespace WpfApplication4
                 txtoutput.Text = game.Show();
             }
         }
+
+        private void txtInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtInput.Text, "[^0-9,]"))
+            {
+                MessageBox.Show("Syota luku");
+                txtInput.Text = txtInput.Text.Remove(txtInput.Text.Length - 1);
+            }
+        }
     }
 }
