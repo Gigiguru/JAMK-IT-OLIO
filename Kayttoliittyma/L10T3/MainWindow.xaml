@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        
         <Button x:Name="btnDraw" Content="Draw" HorizontalAlignment="Left" Margin="382,94,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="382,131,0,0" VerticalAlignment="Top" Width="75" Click="btnClear_Click"/>
         <TextBlock x:Name="txtoutput" HorizontalAlignment="Left" Margin="35,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="240" Width="311"/>
+
         <TextBox x:Name="txtInput" HorizontalAlignment="Left" Height="23" Margin="382,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txtInput_TextChanged"/>
         <ComboBox x:Name="cbCombo" HorizontalAlignment="Left" Margin="382,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbCombo_SelectionChanged"/>
 
