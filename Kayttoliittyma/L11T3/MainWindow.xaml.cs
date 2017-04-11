@@ -160,8 +160,13 @@ namespace WpfApplication8
         {
             try
             {
-               
+                if (listBox.SelectedIndex < 1)
+                {
+                    MessageBox.Show("val");
+                    listBox.SelectedIndex = 0;
                     listBox.ItemsSource = null;
+                }
+                   
                 
                
 
